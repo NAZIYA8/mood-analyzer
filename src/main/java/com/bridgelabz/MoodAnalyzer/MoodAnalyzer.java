@@ -12,19 +12,17 @@ package com.bridgelabz.MoodAnalyzer;
 
 public class MoodAnalyzer {
 
-	/**
-	 * This method is used to analyze mood.
-	 * 
-	 * @return SAD if message contains sad.
-	 * @return HAPPY if message contains happy.
-	 */
-	public String analyseMood(String message) {
+	private String message;
+
+	public MoodAnalyzer(String message) {
+		this.message = message;
+	}
+
+	public String analyseMood() {
 		if (message.contains("Sad"))
 			return "SAD";
 		else
 			return "HAPPY";
 
 	}
-	
-	
 }
