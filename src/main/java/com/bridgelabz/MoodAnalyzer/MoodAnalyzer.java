@@ -17,16 +17,22 @@ public class MoodAnalyzer {
 	public MoodAnalyzer(String message) {
 		this.message = message;
 	}
-/**
- * This method is used to analyze the mood
- * @return SAD if message contains sad 
- * @return HAPPY if message contains any mood
- */
-	public String analyseMood() {
-		if (message.contains("Sad"))
-			return "SAD";
-		else
-			return "HAPPY";
 
+	/**
+	 * This method is used to analyze the mood
+	 * 
+	 * @return SAD if message contains sad
+	 * @return HAPPY if message contains any mood
+	 * @return HAPPY when invalid mood like null
+	 */
+	public String analyseMood() {
+		try {
+			if (message.contains("Sad"))
+				return "SAD";
+			else
+				return "HAPPY";
+		} catch (NullPointerException e) {
+			return "HAPPY";
+		}
 	}
 }
