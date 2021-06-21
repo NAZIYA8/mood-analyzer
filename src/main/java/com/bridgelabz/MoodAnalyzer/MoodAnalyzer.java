@@ -17,7 +17,11 @@ public class MoodAnalyzer {
 	public MoodAnalyzer(String message) {
 		this.message = message;
 	}
-
+/**
+ * This method is used to analyze the mood
+ * @return SAD if message contains sad 
+ * @return HAPPY if message contains any mood
+ */
 	public String analyseMood() {
 		if (message.contains("Sad"))
 			return "SAD";
