@@ -18,6 +18,11 @@ public class MoodAnalyzer {
 		this.message = message;
 	}
 
+	public String analyseMood(String message) throws MoodAnalysisException {
+		this.message = message;
+		return analyseMood();
+	}
+
 	/**
 	 * This method is used to analyze the mood
 	 * 
@@ -25,14 +30,18 @@ public class MoodAnalyzer {
 	 * @return HAPPY if message contains any mood
 	 * @return HAPPY when invalid mood like null
 	 */
-	public String analyseMood() {
+	public String analyseMood() throws MoodAnalysisException {
 		try {
+			if (message.length() == 0)
+				throw new MoodAnalysisException(MoodAnalysisException.exceptionType.ENTERED_EMPTY,
+						"Please enter Valid Mood");
 			if (message.contains("Sad"))
 				return "SAD";
 			else
 				return "HAPPY";
 		} catch (NullPointerException e) {
-			return "HAPPY";
+			throw new MoodAnalysisException(MoodAnalysisException.exceptionType.ENTERED_NULL,
+					"Please enter Valid Mood");
 		}
 	}
 }
